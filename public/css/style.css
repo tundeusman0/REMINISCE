@@ -1,0 +1,426 @@
+*{
+    padding: 0;
+}
+html{
+}
+html, body{ 
+        height:100%; 
+        margin:0; 
+}
+body{
+    margin: 0;
+}
+.alert{
+    font-weight: bold;
+    text-transform: uppercase;
+    background: #1a470025;
+    padding: 10px;
+}
+.alert-info{
+    color: #2b74fd;
+}
+.alert-info{
+    color: #11998e;
+}
+.alert-error{
+    color: red;
+}
+/* body::after {
+  content: '';
+  display: block;
+  height: 150px; 
+} */
+
+/* NAVBAR---HEADER
+    contains Logo and the navigation for Desktop
+*/
+#nav{
+    background: #1a4700;
+    padding: 10px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+    flex-wrap: wrap;
+    /* padding-bottom: 0;
+    margin: 0; */
+
+}
+
+#logo{
+
+    width: 120px;
+    height: 120px;
+    border: 1px solid green;
+}
+.app_name{
+     margin: 10px 20px 0 40px;
+}
+
+#nav-bar{
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 23px;
+
+}
+
+
+ul li{
+    margin: 0 10px 0 10px;
+    list-style-type: none;
+    float: left;
+    padding: 8px;
+    cursor: pointer;
+    color: white;
+}
+ul li a{
+    color: aquamarine;
+    list-style-type: initial ;
+    text-decoration: none;
+}
+.half_body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    background-image: url(../img/bruce-mars-1438718-unsplash.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.note{
+    display: flex;
+    color: rgb(243, 253, 247);
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: column;
+    /* background: #57e70438; */
+    background: #04a7e738;
+    padding: 40px;
+    text-align: center;
+    max-width: 460px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+}
+.note h1{
+    font-size: 50px;
+   
+}
+.note h3{
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    
+}
+.login{
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 30px;
+    color: antiquewhite;
+    cursor: pointer;
+    background: #1a4700;
+    display: flex;
+    justify-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 120px;
+}
+span.onButtn{
+    font-size: 23px;
+}
+.exp{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 50px;
+    margin: 10px 50px 10px 50px;
+}
+.exp_detail{
+    flex: 2;
+    margin-bottom: 10px;
+    max-width: 400px;
+    margin-right: 20px;
+}
+.exp_pix img{
+    flex: 2;
+    max-width: 400px;
+    max-height: 500px;
+}
+.reviews_sec{
+    background: #1a470025;
+    text-align: center;
+    color: rgb(42, 182, 128);
+}
+.reviews_sec h1 {
+    margin-top: 20px;
+    padding: 20px;
+}
+.reviews{
+    display: flex;
+    padding: 30px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.review{
+    flex: 1;
+    margin: 20px;
+    max-width: 400px;
+    background: #f4f7fa;
+    padding: 10px;
+}
+a{
+    text-decoration: none;
+    color: rgb(207, 235, 208);
+}
+footer{
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid green;
+    background: #1a4700;
+    padding: 50px;
+}
+.fab{
+    font-size: 30px;
+    font-weight: bold;
+    color: #11998e;
+    margin: 20px;
+}
+#links_footer{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+#footer_div{
+    display: flex;
+    flex-direction: column;
+    color: rgb(222, 247, 215);
+    margin: 10px;
+}
+#footer_div > a{
+    padding: 5px;
+    font-family: 'Courier New', Courier, monospace;
+}
+#footer_div > a:hover{
+    color: #ff1ef4;
+}
+#footer{
+    margin-top: 25px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: center;
+    color: rgb(222, 247, 215);
+}
+#footer:hover{
+    color: #2b74fd;
+}
+.user_name{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+}
+.user_name h1{
+    color: #011801;
+}
+span.check_loan{
+    cursor: pointer;
+    background: #026b62;
+    color: antiquewhite;
+    height: 25px;
+    border-radius: 20px;
+    padding: 10px;
+    /* margin-left: 10px; */
+    margin: 15px  0 10px 15px;
+    border: 1px solid #11998e;
+}
+.user_other{
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.user_select{
+    flex: 1;
+    text-align: center;
+    margin-left: 40px;
+    color: aquamarine;
+
+}
+
+/* .user_select:hover {
+    background: #1a4700;
+} */
+.user_select_show:hover p{
+    display: block;
+    cursor: pointer;
+
+}
+.user_select h3{
+    background: #11998e;
+    border: 2px solid #1a4700;
+    padding: 12px;
+    margin: 0;
+    cursor: pointer;
+
+}
+.user_select h3:hover{
+    margin-bottom: 1px;
+    /* z-index: -1; */
+}
+.user_select p{
+    display: none;
+    background: #11998e; 
+    border: 2px solid #1a4700;
+    padding: 10px;
+    margin: 0;
+  transition: transform .10s;
+}
+.user_select p:hover{
+  transform: scale(1.1);
+}
+.user_info{
+    flex: 2;
+}
+.user_info h1{
+    text-align: center;
+}
+.user_info h3{
+    text-align: justify;
+    color: #011801;
+}
+.loanRepay{
+    display: none;
+    padding: 30px;
+}
+.loanRepay p{
+    color: red;
+}
+.acct_info{
+    padding: 30px;
+}
+.show{
+    display: none;
+    flex-direction: column;
+    color: #026b62;
+    padding: 15px;
+}
+.show_header{
+    text-align: center;
+}
+.show_details{
+    text-align: justify;
+}
+.center{
+    display: flex;
+    justify-content: center;
+}
+.show_form{
+    display: none;
+    justify-content: center;
+}
+.row.clearfix label{
+    font-size: 20px;
+    margin-left:10px;
+    border-bottom: 1px dotted #11998e;
+    border-top: 1px dotted #11998e;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+.admin_loan{
+    display: none;
+}
+.admin_loan h1{
+    text-align: center;
+}
+.about_us{
+    display: flex;
+    flex-direction: column;
+    background-image: url(./../img/helena-lopes-463976-unsplash.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+table tbody tr td a{
+    text-align: center;
+    color: #ff1ef4;
+}
+@media only screen and (max-width: 1024px){
+    
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 780px){
+    
+    .app_name{
+     margin-right: 160px;
+    }
+    #nav-bar{
+        margin-left: 150px;
+    }
+    .exp_detail h1{
+        font-size: 20px;
+    }
+    .exp_detail h3{
+        font-size: 13px;
+    }
+}
+
+@media only screen and (max-width: 767px){
+    /* header{ 
+        height:250px;  
+    }
+    footer{ 
+        height:250px;  
+    } */
+        
+    .note h1{
+        font-size: 30px;
+    }
+    .note h3{
+        font-size: 10px;
+        color: rgb(255, 255, 255);
+    }
+    .exp{
+        justify-content: space-between;
+        padding: 50px;
+        padding: 10px;
+        margin: 10px 50px 10px 50px;
+        margin: 10px 0 10px 0;
+    }
+    .exp_detail{
+        flex: 2;
+        margin-bottom: 10px;
+    }
+    .exp_detail h1{
+        font-size: 15px;
+    }
+    .exp_detail h3{
+        font-size: 10px;
+    }
+    .exp_pix img{
+        flex: 2;
+        max-width: 200px;
+        max-height: 100px;
+    }
+    .reviews_sec h1 {
+        font-size: 18px;
+        margin-top: 10px;
+        padding: 10px;
+    }
+    
+    .reviews{
+        padding: 10px;
+    }
+    .review{
+        margin: 10px;
+        padding: 5px;
+    }
+    .review h1{
+        font-size: 20px;
+    }
+    .review h3{
+        font-size: 15px;        
+    }
+}

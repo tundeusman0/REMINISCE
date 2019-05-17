@@ -1,0 +1,53 @@
+{
+  "name": "reminisce",
+  "version": "1.0.0",
+  "description": "loan app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node build/server.js",
+    "build": "babel src --out-dir build --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "10.0.0",
+    "npm": "6.5.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tundeusman0/REMINISCE.git"
+  },
+  "author": "tunde usman",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "config": "^3.1.0",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^2.0.3",
+    "cookie-parser": "^1.4.4",
+    "crypto-random-string": "^3.0.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.16.1",
+    "express-validator": "^5.3.1",
+    "mongoose": "^5.5.7",
+    "nodemailer": "^6.1.1",
+    "nodemailer-mailgun-transport": "^1.4.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "randomstring": "^1.1.5",
+    "validator": "^10.11.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/register": "^7.4.4"
+  },
+  "bugs": {
+    "url": "https://github.com/tundeusman0/REMINISCE/issues"
+  },
+  "homepage": "https://github.com/tundeusman0/REMINISCE#readme"
+}

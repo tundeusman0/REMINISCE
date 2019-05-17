@@ -1,0 +1,17 @@
+<%- include('../layout/User_header.ejs',{
+    title:"User Page"
+}) %>
+
+
+
+    
+    <% if (locals.user && locals.user.admin === 0 ) { %>
+        <%- include('./users.ejs') %>
+    <% }else if (locals.user && locals.user.admin === 1 ){ %>
+        <%- include('./admin.ejs') %>
+    <% } %>
+        
+
+
+
+<%- include('../layout/footer.ejs') %>

@@ -1,0 +1,104 @@
+<%- include('../layout/User_header.ejs',{
+    title:"Log In Page"
+}) %>
+
+
+
+<div class="center">
+        <div class="form_wrapper">
+            <div class="form_container">
+                <div class="title_container">
+                    <h2>REQUEST</h2>
+                </div>
+                <div class="row clearfix">
+                    <div class="">
+                        <form method="POST" >
+                            <label for="">
+                                Loanee request information
+                            </label>
+                            <div>
+                                <p>Loan Type ₦</p>
+                            </div>
+                            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-option"></i></span>
+                                <input type="text" name="loanType" placeholder="loanType" value="<%= loanType %>" required />
+                            </div>
+                            <div>
+                                <p>Loan Amount Requested ₦</p>
+                            </div>
+                            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-money-bill-alt"></i></span>
+                                <input type="number" name="amount" value="<%= amount %>" placeholder="AMOUNT" required />
+                            </div>
+                            <div>
+                                <p>Reason for Borrowing</p>
+                            </div>
+                            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-address-card"></i></span>
+                                <input type="text" name="reason" placeholder="reason" value="<%= reason %>" required />
+                            </div>
+                            <label for="">
+                                Current address information
+                            </label>
+                            <div>
+                                <p>Street Address</p>
+                            </div>
+                            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-address-card"></i></span>
+                                <input type="text" name="street" placeholder="Street Address" value="<%= street %>" required />
+                            </div>
+                            <div>
+                                <p>State</p>
+                            </div>
+                            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-flag"></i></span>
+                                <input type="text" name="state" placeholder="State" value="<%= state %>" required />
+                            </div>
+                            <div>
+                                <p>Town/City</p>
+                            </div>
+                            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-flag"></i></span>
+                                <input type="text" name="town" placeholder="Town/City" value="<%= town %>" required />
+                            </div>
+                            <div>
+                                <p>Local Government Area</p>
+                            </div>
+                            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-flag"></i></span>
+                                <input type="text" name="lga" placeholder="Local Government Area" value="<%= lga %>" required />
+                            </div>
+                            <div>
+                                <p>Have the user lived here more than 2 years?</p>
+                            </div>
+                            
+                            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-school"></i></span>
+                                <input type="text" name="lived" placeholder="Lived" value="<%= lived %>" required />
+                            </div>
+                            <label for="">
+                                Account information
+                            </label>
+                            <div>
+                                <p>Bank Name</p>
+                            </div>
+                            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-school"></i></span>
+                                <input type="text" name="bankName" placeholder="Bank Name" value="<%= bankName %>" required />
+                            </div>
+                            <div>
+                                <p>Bank Account Number</p>
+                            </div>
+                            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-pen"></i></span>
+                                <input type="number" name="bankAcc" placeholder="Bank Account Number" value="<%= bankAcc %>" required />
+                            </div>
+                            <div>
+                                <p>Monthly Income</p>
+                            </div>
+                            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-money-bill-alt"></i></span>
+                                <input type="number" name="monthIncome" placeholder="Monthly Income" value="<%= monthIncome %>" required />
+                            </div>
+    
+    
+                            <input class="button" formaction="/admin/confirm/<%= id %>" type="submit" value="Accept and Pay the Loanee" />
+                            <input class="button" formaction="/admin/unconfirm/<%= id %>" type="submit" value="Decline and dont Pay the Loanee" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../layout/footer.ejs') %>

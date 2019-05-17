@@ -1,0 +1,36 @@
+<%- include('../layout/header.ejs',{
+    title:"Log In Page"
+}) %>
+
+    <div class="register">
+        <div class="side_reg">
+            <h1>WELCOME BACK</h1>
+            <h1>We are a live changing platform</h1>
+            <h3>You will never regret with us</h3>
+            <h3>To apply, you must meet these requirements</h3>
+            <ul>
+                <li>You are 19 or older.</li>
+                <li>You are resident of Nigeria.</li>
+                <li>You have not declared bankruptcy in the last 7 years.</li>
+            </ul>
+        </div>
+        <div class="form_wrapper">
+            <div class="form_container">
+                <div class="title_container">
+                    <h2>SIGN IN</h2>
+                </div>
+                <div class="row clearfix">
+                    <div class="">
+                        <form method="POST"  action="/user/verify">
+                            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+                                <input type="text" name="secretToken" placeholder="Secret Token" required />
+                            </div>
+                            <input class="button" type="submit" value="Verify" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<%- include('../layout/footer.ejs') %>

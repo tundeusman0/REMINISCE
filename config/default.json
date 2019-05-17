@@ -1,0 +1,8 @@
+{
+    "development": {
+        "PORT": 3000,
+        "MONGODB_URI": "mongodb://localhost:27017/reminisce",
+        "api_key": "16c799ad50f469636b15fcfb12d253d7-4a62b8e8-859bb623",
+        "domain": "sandbox81c1e889e5ed460d8d97442bdfc1fc44.mailgun.org"
+    }
+}

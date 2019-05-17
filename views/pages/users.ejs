@@ -1,0 +1,330 @@
+<div class="user_name">
+    <% if (user) { %>
+        <h1>Hi <%= user.fName %></h1>
+    <% } %>
+        <span class="check_loan">Make a Loan repaymeant</span>
+        <span class="check_loan">Check Loan Details</span>
+    </div>
+    <div class="acct_info">
+        <h1>Welcome Back!</h1>
+        <h3>your mail at <%= user.email %></h3>
+        <% if(user.loanStatus == "unpending"){ %>
+            <h3>You do not have an Outstanding loan please feel free to make a loan request</h3>
+        <% }else if(user.loanStatus == "pending") { %>
+            <% for(let loanee of loan){ %>
+                <% if(loanee.email === user.email ){ %>
+                    <% if( loanee.givenLoan === "No" && loanee.status === "Not Done" ){ %>
+                        <h3>You have a Pending loan request of ₦ <%= loanee.amount %></h3>
+                    <% }else if(loanee.givenLoan === "Yes" && loanee.status === "Not Done"){ %>
+                        <h3>Your loan is ₦ <%= loanee.amount %></h3>
+                    <% } %>
+                <% } %>
+            <% } %>
+        <% } %>
+        <h3>Check out the loan details for more info</h3>
+    </div>
+
+    <div class="loanRepay">
+        <h2>It is nice doing bussiness with you, please you are to pay
+        <% if(user.loanStatus == "unpending"){ %>
+            ₦0 , you have not requested for any loan.... you cannot pay
+        <% }else if(user.loanStatus == "pending") { %>
+            <% for(let loanee of loan){ %>
+                <% if(loanee.email === user.email ){ %>
+                    <% if( loanee.givenLoan === "No" && loanee.status === "Not Done" ){ %>
+                        ₦0 loan has not been granted
+                    <% }else if(loanee.givenLoan === "Yes" && loanee.status === "Not Done"){ %>
+                        ₦<%= loanee.amount +500 %>
+                    <% } %>
+                <% } %>
+            <% } %>
+        <% } %>
+            
+        </h2>
+        <p>we only accept bank transfer pay</p>
+        <h2>An admin will confirm your payment</h2>
+        <h3>
+            Bank Transfer/Cash deposit:
+        </h3>
+        <h3>
+            Account Name: Reminisce Ltd
+            Bank: Guaranty Trust Bank (GTB)
+            Account Number: 0266302303
+        </h3>
+        <% for(let loanee of loan){ %>
+        
+                <% if(loanee.email === user.email){ %>
+                
+                
+                <% if(loanee.givenLoan === "Yes" && loanee.status === "Not Done" ){ %>
+        <div class="center">
+            <div class="form_wrapper">
+                <div class="form_container">
+                    <div class="title_container">
+                        <h2>Bank Transfer Slip Number / Transaction Number</h2>
+                    </div>
+                    <div class="row clearfix">
+                        <div class="">
+                            <form method="POST">
+                                <div class="input_field"> <span><i aria-hidden="true" class="fa fa-pen"></i></span>
+                                    <input type="text" name="transferNumber" placeholder="Transfer Number" required />
+                                </div>
+                                <div class="input_field"> <span><i aria-hidden="true" class="fa fa-pen"></i></span>
+                                    <input type="text" name="paymentDate" placeholder="Payment Date" required />
+                                </div>
+                                <input class="button" formaction="/user/pay" type="submit" value="Pay" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% }else if(loanee.givenLoan === "No" && loanee.status === "Not Done"){ %>
+            <h1>You cannot pay now</h1>
+        <% }else{ %>
+        <% } %>
+        <% } %>
+        <% } %>
+    </div>
+    
+
+    <div class="loanRepay">
+
+    <% if(user.loanStatus == "unpending"){ %>
+            <h3>You have not made any loan request </h3>
+        <% }else if(user.loanStatus == "pending") { %>
+            <% for(let loanee of loan){ %>
+                <% if(loanee.email === user.email ){ %>
+                    <% if( loanee.givenLoan === "No" && loanee.status === "Not Done" ){ %>
+                        <h3>You have made a loan request of ₦<%= loanee.amount %> Not granted yet</h3>
+                        <h3>Your pay back will be ₦<%= loanee.amount +500 %></h3>
+                    <% }else if(loanee.givenLoan === "Yes" && loanee.status === "Not Done"){ %>
+                        <h3>you are to pay ₦<%= loanee.amount +500 %></h3>
+                    <% } %>
+                <% } %>
+            <% } %>
+        <% } %>
+       
+    </div>
+    <div class="user_other">
+        <div class="user_info">
+            <h1>OUR PRODUCT</h1>
+            <h3>
+                We make it easy for you to apply for a loan online. 
+                Filling out the application should take between 5 and 20 minutes,
+                depending on your connection speed and the information you have available. 
+                Once completed and submitted, an agent from
+                REMINISCE LOAN APP will review your application details 
+                and respond to you as quickly as possible.
+            </h3>
+        </div>
+        <div class="user_select">
+            <span class="user_select_show">
+                <h3>Select A Loan Plan</h3>
+                <p>Fair and Fast Loan</p>
+                <p>Personal Loan</p>
+                <p>Student Loan</p>
+                <p>Project Loan</p>
+            </span>   
+        </div>
+    </div>
+
+    <div class="shows" >
+        <div class="show">
+            <div class="show_header">
+                <h1>FAIR AND FAST LOAN</h1>
+            </div>
+            <div class="show_details">
+                <h3>
+                    REMINISCE Fair and Fast Loan can make good financial sense. 
+                    Interest rates are much lower than rates charged on other loan apps. 
+                    So we save you money. 
+                    And our rates are fully competitive with banks and trust
+                    companies.
+                </h3>
+                <h3>
+                    Fair and Fast Loan is a short term loan that ranges from ₦1000 to ₦5,000
+                </h3>
+                <h3>
+                    Note: This loan set-up will be charged an 
+                    interest rate of 5.00% per month. 
+                    This does not apply to the other REMINISCE Loan™ .
+                </h3>
+            </div>
+        </div>
+        <div class="show">
+            <div class="show_header">
+                <h1>PERSONAL LOAN</h1>
+            </div>
+            <div class="show_details">
+                <h3>
+                    REMINISCE Personal Loan can make good financial sense.
+                    Interest rates are much lower than rates charged on other loan apps.
+                    So we save you money.
+                    And our rates are fully competitive with banks and trust
+                    companies.
+                </h3>
+                <h3>
+                    Fair and Fast Loan is a short term loan that ranges from ₦5000 to ₦50,000
+                </h3>
+                <h3>
+                    Note: This loan set-up will be charged an
+                    interest rate of 7.00% per month.
+                    This does not apply to the other REMINISCE Loan™ .
+                </h3>
+            </div>
+        </div>
+        <div class="show">
+            <div class="show_header">
+                <h1>STUDENT LOAN</h1>
+            </div>
+            <div class="show_details">
+                <h3>
+                    REMINISCE Student Loan can make good financial sense.
+                    Interest rates are much lower than rates charged on other loan apps.
+                    So we save you money.
+                    And our rates are fully competitive with banks and trust
+                    companies.
+                </h3>
+                <h3>
+                    Fair and Fast Loan is a short term loan that ranges from ₦10,000 to ₦100,000
+                </h3>
+                <h3>
+                    Note: This loan set-up will be charged an
+                    interest rate of 8.00% per month.
+                    This does not apply to the other REMINISCE Loan™ .
+                </h3>
+            </div>
+        </div>
+        <div class="show">
+            <div class="show_header">
+                <h1>PROJECT LOAN</h1>
+            </div>
+            <div class="show_details">
+                <h3>
+                    REMINISCE Project Loan can make good financial sense.
+                    Interest rates are much lower than rates charged on other loan apps.
+                    So we save you money.
+                    And our rates are fully competitive with banks and trust
+                    companies.
+                </h3>
+                <h3>
+                    Fair and Fast Loan is a short term loan that ranges from ₦50,000 to ₦1,000,000
+                </h3>
+                <h3>
+                    Note: This loan set-up will be charged an
+                    interest rate of 10.00% per month.
+                    This does not apply to the other REMINISCE Loan™ .
+                </h3>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="show_form">
+        <div class="form_wrapper">
+            <div class="form_container">
+                <div class="title_container">
+                    <h2>REQUEST</h2>
+                </div>
+                <div class="row clearfix">
+                    <div class="">
+                        <form method="POST" action="/user_page">
+                            <label for="">
+                                Loan information
+                            </label>
+                            <div>
+                                <p>Loan Type </p>
+                            </div>
+                            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-option"></i></span>
+                                <input type="text" name="loanType" placeholder="Loan Type" required />
+                            </div>
+                            <div>
+                                <p>Loan Amount Requested ₦</p>
+                            </div>
+                            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-money-bill-alt"></i></span>
+                                <input type="number" name="amount" placeholder="AMOUNT" required />
+                            </div>
+                            <div>
+                                <p>Reason for Borrowing</p>
+                            </div>
+                            <div class="input_field select_option">
+                                <select required name="reason" id="reason">
+                                    <option value="" hidden>Select a Reason</option>
+                                    <option value="Tuition">Tuition</option>
+                                    <option value="Rent">Rent</option>
+                                    <option value="Medical">Medical</option>
+                                    <option value="Car repair">Car repair</option>
+                                    <option value="Financial Emergency">Financial Emergency</option>
+                                    <option value="Everyday Expenses">Everyday Expenses</option>
+                                </select>
+                                <div class="select_arrow"></div>
+                            </div>
+                            <label for="">
+                                Current address information
+                            </label>
+                            <div>
+                                <p>Street Address</p>
+                            </div>
+                            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-address-card"></i></span>
+                                <input type="text" name="street" placeholder="Street Address" required />
+                            </div>
+                            <div>
+                                <p>State</p>
+                            </div>
+                            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-flag"></i></span>
+                                <input type="text" name="state" placeholder="State" required />
+                            </div>
+                            <div>
+                                <p>Town/City</p>
+                            </div>
+                            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-flag"></i></span>
+                                <input type="text" name="town" placeholder="Town/City" required />
+                            </div>
+                            <div>
+                                <p>Local Government Area</p>
+                            </div>
+                            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-flag"></i></span>
+                                <input type="text" name="lga" placeholder="Local Government Area" required />
+                            </div>
+                            <div>
+                                <p>Have you lived here more than 2 years?</p>
+                            </div>
+                            <div class="input_field radio_option">
+                                <input type="radio" name="lived" value="Yes" id="rd1">
+                                <label for="rd1">Yes</label>
+                                <input type="radio" name="lived" value="No" id="rd2">
+                                <label for="rd2">No</label>
+                            </div>
+                            <label for="">
+                                Account information
+                            </label>
+                            <div>
+                                <p>Bank Name</p>
+                            </div>
+                            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-school"></i></span>
+                                <input type="text" name="bankName" placeholder="Bank Name" required />
+                            </div>
+                            <div>
+                                <p>Bank Account Number</p>
+                            </div>
+                            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-pen"></i></span>
+                                <input type="number" name="bankAcc" placeholder="Bank Account Number" required />
+                            </div>
+                            <div>
+                                <p>Monthly Income</p>
+                            </div>
+                            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-money-bill-alt"></i></span>
+                                <input type="number" name="monthIncome" placeholder="Monthly Income" required />
+                            </div>
+    
+    
+                            <input class="button" type="submit" value="Request" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/main.js"></script>

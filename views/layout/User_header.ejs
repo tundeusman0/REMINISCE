@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/form.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/table.css" />
+</head>
+<body>
+    <div id="nav">
+    
+        <div id="logo">
+            <p>
+                LOGO
+            </p>
+        </div>
+        <div class="app_name">
+            <h2>REMINISCE LOAN APP</h2>
+            </div>
+    
+        <div id="nav-bar">
+            <ul>
+                <li><a href="/">Home</a> |</li>
+                <li><a href="./UI/about_us.html">About Us</a> |</li>
+                <% if ( locals.user === undefined) { -%>
+                    <li><a href="/user/register">Register</a></li>
+                    <li><a href="/user/login">Log in</a></li>
+                <% } else {%>
+                <% if ( user && user.admin === 0) { -%>
+                    <li><a href="/user/logout">( logout )</a></li>
+                <% } else if(user && user.admin == 1) { %>
+                    <li><a href="/user/admin">Admin Area</a></li>
+                    <li><a href="/user/logout">( logout )</a></li>
+                    
+                <% } else { -%>
+                    <li><a href="/user/register">Register</a></li>
+                    <li><a href="/user/login">Log in</a></li>
+                    
+                <% }%>
+                <% }%>
+
+                
+            </ul>
+        </div>
+    </div>
+    
+    <%- messages('messages', locals) %>

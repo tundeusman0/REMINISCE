@@ -1,0 +1,28 @@
+<%- include('../layout/User_header.ejs',{
+    title:"User Page"
+}) %>
+<div class="center">
+            <div class="form_wrapper">
+                <div class="form_container">
+                    <div class="title_container">
+                        <h2>Bank Transfer Slip Number / Transaction Number</h2>
+                    </div>
+                    <div class="row clearfix">
+                        <div class="">
+                            <form method="POST">
+                                <div class="input_field"> <span><i aria-hidden="true" class="fa fa-pen"></i></span>
+                                    <input type="text" name="transferNumber" value="<%=transferNumber%>" placeholder="Transfer Number" required />
+                                </div>
+                                <div class="input_field"> <span><i aria-hidden="true" class="fa fa-pen"></i></span>
+                                    <input type="text" name="paymentDate" value="<%=paymentDate%>" placeholder="Payment Date" required />
+                                </div>
+                                <input class="button" formaction="/admin/payment_confirmation/<%= id%>" type="submit" value="Confirm" />
+                                <input class="button" formaction="/admin/unpayment_confirmation/<%= id%>" type="submit" value="Dont Confirm" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<%- include('../layout/footer.ejs') %>
