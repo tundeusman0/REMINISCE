@@ -3,12 +3,12 @@
 // EmailService.js
 import nodemailer from 'nodemailer';
 import mailgunTransport from 'nodemailer-mailgun-transport'
-
+// https://api.mailgun.net/v3/gentle-waters-83618.herokuapp.com
 // Configure transport options
 const mailgunOptions = {
     auth: {
         api_key: process.env.MAILGUN_API_KEY,
-        domain: process.env.MAILGUN_DOMAIN,
+        domain: `https://api:#{${process.env.MAILGUN_API_KEY}}@api.mailgun.net/v2/${process.env.MAILGUN_DOMAIN}`,
     }
 }
 const transport = mailgunTransport(mailgunOptions)
