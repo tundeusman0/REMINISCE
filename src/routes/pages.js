@@ -377,7 +377,7 @@ router.post('/user/pay', isUser, [
     res.redirect("/user_page")
 })
 
-router.get('/admin/payment_confirmation/:id', isAdmin, (req,res)=>{
+router.get('/admin/payment_confirmation/:id', isUser, (req,res)=>{
     let id = req.params.id
     // let id = req.params.id
     // console.log("confirmID",id)
@@ -400,7 +400,7 @@ router.get('/admin/payment_confirmation/:id', isAdmin, (req,res)=>{
     })
     
 })
-router.post('/admin/payment_confirmation/:id', isAdmin, [
+router.post('/admin/payment_confirmation/:id', isUser, [
     check('transferNumber').isString(),
 ], (req, res) => {
     const { transferNumber, paymentDate} = req.body;
