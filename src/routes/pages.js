@@ -5,7 +5,7 @@ import { check, validationResult } from "express-validator/check";
 const isUser = auth.isUser;
 const isAdmin = auth.isAdmin;
 
-import url from "../config/url";
+import {url} from "../config/url";
 
 import {User} from "../models/user";
 import {Loan} from "../models/loan";

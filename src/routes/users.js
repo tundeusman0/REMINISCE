@@ -9,7 +9,7 @@ import bcrypt from "bcryptjs"
 import auth from "../auth/auth";
 import EmailService from "../misc/mailer";
 
-import url from "../config/url";
+import {url} from "../config/url";
 
 const isUser = auth.isUser;
 
