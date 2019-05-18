@@ -24,13 +24,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 const isUser = _auth.default.isUser;
 const isAdmin = _auth.default.isAdmin;
 
-const router = _express.default.Router();
+const router = _express.default.Router(); // router.get('/',  (req, res) => {
+//     res.render("index",{
+//         title:"LOAN APP"
+//     })
+// })
 
-router.get('/', (req, res) => {
-  res.render("index", {
-    title: "LOAN APP"
-  });
-});
+
 router.get('/user_page', isUser, (req, res) => {
   let email = res.locals.user.email; // console.log(res.locals.user)
 

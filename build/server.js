@@ -66,7 +66,12 @@ app.set('views', viewPath); // public files
 
 app.use(_express.default.static(publicPath));
 app.locals.errors = null;
-app.get('*', function (req, res, next) {
+app.get('/', (req, res) => {
+  res.render("index", {
+    title: "LOAN APP"
+  });
+});
+app.get("*", function (req, res, next) {
   res.locals.user = req.user || null;
   next();
 });

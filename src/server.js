@@ -59,17 +59,19 @@ app.use(express.static(publicPath))
 
 app.locals.errors = null;
 
-app.get('*', function (req, res, next) {
-    res.locals.user = req.user || null;
-    next();
-});
 
 
-router.get('/', (req, res) => {
+
+app.get('/', (req, res) => {
     res.render("index", {
         title: "LOAN APP"
     })
 })
+
+app.get("*", function (req, res, next) {
+    res.locals.user = req.user || null;
+    next();
+});
 
 app.use("/", pages);
 
