@@ -65,7 +65,11 @@ app.get('*', function (req, res, next) {
 });
 
 
-
+router.get('/', (req, res) => {
+    res.render("index", {
+        title: "LOAN APP"
+    })
+})
 
 app.use("/", pages);
 

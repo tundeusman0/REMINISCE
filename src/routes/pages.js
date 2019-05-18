@@ -14,11 +14,11 @@ import EmailService from "../misc/mailer";
 const router = express.Router();
 
 
-router.get('/',  (req, res) => {
-    res.render("index",{
-        title:"LOAN APP"
-    })
-})
+// router.get('/',  (req, res) => {
+//     res.render("index",{
+//         title:"LOAN APP"
+//     })
+// })
 
 router.get('/user_page', isUser,  (req, res) => {
     let email = res.locals.user.email
