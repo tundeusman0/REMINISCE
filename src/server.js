@@ -3,7 +3,7 @@ import bodyParser from "body-parser";
 import passport from "passport";
 import session from "express-session";
 
-require("./config/config");
+// require("./config/config");
 // import("./config/config");
 let MongoStore = require('connect-mongo')(session);
 
@@ -15,7 +15,7 @@ import register from "./routes/users";
 
 
 const app = express();
-const port = process.env.PORT
+const port = process.env.PORT || 3000
 // process.env.NODE_ENV
 
 // bodyParser

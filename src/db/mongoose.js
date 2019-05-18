@@ -1,9 +1,10 @@
 const mongoose = require('mongoose')
+// require("./config/config");
 
 mongoose.Promise = global.Promise
 mongoose.set('useFindAndModify', false)
 
-mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/reminisce", {
     useCreateIndex: true,
     useNewUrlParser: true
 })
