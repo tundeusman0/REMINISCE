@@ -332,7 +332,7 @@ router.post('/user/pay', isUser, [
                                 <br/>
                                 please check and confirm payment of a loan request from ${req.user.email};
                                 on the following page:
-                                <a href="${url}/admin/payment_confirmation/${userId}">${url}admin/payment_confirmation/${userId}</a>
+                                <a href="${url}admin/payment_confirmation/${userId}">${url}admin/payment_confirmation/${userId}</a>
                                 <br/><br/>`
         User.findOne({ admin: 1 }).then(user => {
             console.log(user.email)
