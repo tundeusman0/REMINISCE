@@ -30,7 +30,7 @@ app.use(bodyParser.json({
 }));
 
 // express session
-app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true, store: new MongoStore(options) }));
 app.use(passport.initialize());
 app.use(passport.session());
 

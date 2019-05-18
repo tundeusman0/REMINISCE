@@ -4,6 +4,8 @@
 import nodemailer from 'nodemailer';
 import mailgunTransport from 'nodemailer-mailgun-transport'
 // https://api.mailgun.net/v3/gentle-waters-83618.herokuapp.com
+// '"Reminisce" <youremail@{yourdomain.com}>'
+
 // Configure transport options
 const mailgunOptions = {
     auth: {
@@ -20,7 +22,7 @@ class EmailService {
     sendText(to, subject, html) {
         return new Promise((resolve, reject) => {
             this.emailClient.sendMail({
-                from: '"Reminisce" <youremail@yourdomain.com>',
+                from: '"Reminisce" <admin@{reminisce.com}>',
                 to,
                 subject,
                 html,
