@@ -36,9 +36,7 @@ app.use(session({
     secret: "keyboard cat", 
     resave: true, 
     saveUninitialized: true, 
-    store: new MongoStore({
-        db: mongoose.connection.db
-    }) 
+    store: new MongoStore() 
 }));
 app.use(passport.initialize());
 app.use(passport.session());
