@@ -93,10 +93,10 @@ router.post('/register', [
                                 on the following page:
                                 <a href="${url}user/verify">${url}user/verify</a>
                                 <br/><br/>`
-
+                            console.log("send to",email)
                             EmailService.sendText(email, 'Please Verify Your Email!', html)
                                 .then(() => {
-                                    console.log("message success")
+                                    console.log("message success",email)
                                 })
                                 .catch((e) => {
                                     console.log("message error",e)
