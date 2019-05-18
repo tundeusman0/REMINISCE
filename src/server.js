@@ -18,6 +18,7 @@ import register from "./routes/users";
 
 const app = express();
 const port = process.env.PORT || 3000
+console.log(process.env.NODE_ENV)
 // process.env.NODE_ENV
 
 // bodyParser
