@@ -6,12 +6,13 @@ import mailgunTransport from 'nodemailer-mailgun-transport'
 // https://api.mailgun.net/v3/gentle-waters-83618.herokuapp.com
 // '"Reminisce" <youremail@{yourdomain.com}>'
 // "https://api:#{API_KEY}@api.mailgun.net/v2/<your-mailgun-domain>"
+// https://api.mailgun.net/v2/yourdomain.com/
 
 // Configure transport options
 const mailgunOptions = {
     auth: {
         api_key: process.env.MAILGUN_API_KEY,
-        domain: `https://api:${process.env.MAILGUN_API_KEY}@api.mailgun.net/v2/${process.env.MAILGUN_DOMAIN}`,
+        domain: `https://api.mailgun.net/v2/${process.env.MAILGUN_DOMAIN}/`,
     }
 }
 console.log(mailgunOptions.auth.domain)
