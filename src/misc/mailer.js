@@ -25,8 +25,7 @@ class EmailService {
     sendText(to, subject, html) {
         return new Promise((resolve, reject) => {
             this.emailClient.sendMail({
-                // from: '"Reminisce" <youremail@yourdomain.com>',
-                from: 'Reminisce Admin',
+                from: '"Reminisce" <youremail@yourdomain.com>',
                 to,
                 subject,
                 html,
