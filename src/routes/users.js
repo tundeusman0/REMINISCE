@@ -71,7 +71,7 @@ router.post('/register', [
                                 console.log(`user added`)
                                 
                                 req.flash('info', 
-                                'Registration successful, an Email as been sent to you please confirm to be able to login');
+                                'Registration successful, an Email as been sent to you please confirm to be able to login if not please contact the developer @tundeusman0@gmail.com to add your email to his Recipients');
                                 // res.redirect("/user/register")
                                 res.render('pages/register', {
                                     email:"", fName:"", lName:"", bvn:"", num:""

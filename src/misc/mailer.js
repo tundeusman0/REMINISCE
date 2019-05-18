@@ -12,7 +12,7 @@ import mailgunTransport from 'nodemailer-mailgun-transport'
 const mailgunOptions = {
     auth: {
         api_key: process.env.MAILGUN_API_KEY,
-        domain: `https://api.mailgun.net/v2/${process.env.MAILGUN_DOMAIN}/`,
+        domain: process.env.MAILGUN_DOMAIN,
     }
 }
 console.log(mailgunOptions.auth.domain)
