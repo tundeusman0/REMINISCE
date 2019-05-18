@@ -2,6 +2,8 @@ import express from "express";
 import bodyParser from "body-parser";
 import passport from "passport";
 import session from "express-session";
+import mongoose from "mongoose";
+
 
 // require("./config/config");
 // import("./config/config");
@@ -30,7 +32,14 @@ app.use(bodyParser.json({
 }));
 
 // express session
-app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true, store: new MongoStore(options) }));
+app.use(session({ 
+    secret: "keyboard cat", 
+    resave: true, 
+    saveUninitialized: true, 
+    store: new MongoStore({
+        db: mongoose.connection.db
+    }) 
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 
