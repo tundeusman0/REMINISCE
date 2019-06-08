@@ -5,9 +5,9 @@ import session from "express-session";
 import mongoose from "mongoose";
 
 
-// require("./config/config");
-// import("./config/config");
-let MongoStore = require('connect-mongo')(session);
+import "./config/config";
+import store from "connect-mongo";
+const MongoStore = store(session);
 
 
 import path from "path";
@@ -17,9 +17,7 @@ import register from "./routes/users";
 
 
 const app = express();
-const port = process.env.PORT || 3000
-console.log(process.env.NODE_ENV)
-// process.env.NODE_ENV
+const port = process.env.PORT
 
 // bodyParser
 // parse application/x-www-form-urlencoded
@@ -38,7 +36,8 @@ app.use(session({
     resave: true, 
     saveUninitialized: true, 
     store: new MongoStore({
-        url: process.env.MONGODB_URI
+        url: process.env.MONGODB_URI,
+        collection: 'sessions'
     }) 
 }));
 app.use(passport.initialize());
@@ -69,9 +68,6 @@ app.use(express.static(publicPath))
 
 app.locals.errors = null;
 
-
-
-
 app.get('/', (req, res) => {
     res.render("index", {
         title: "LOAN APP"
@@ -89,4 +85,4 @@ app.use("/user", register);
 
 app.listen(port, () => {
     console.log(`app started at port ${port}`)
-})
+});

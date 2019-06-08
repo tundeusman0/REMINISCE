@@ -8,6 +8,12 @@ var _passport = _interopRequireDefault(require("passport"));
 
 var _expressSession = _interopRequireDefault(require("express-session"));
 
+var _mongoose = _interopRequireDefault(require("mongoose"));
+
+require("./config/config");
+
+var _connectMongo = _interopRequireDefault(require("connect-mongo"));
+
 var _path = _interopRequireDefault(require("path"));
 
 var _pages = _interopRequireDefault(require("./routes/pages"));
@@ -16,14 +22,9 @@ var _users = _interopRequireDefault(require("./routes/users"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-require("./config/config"); // import("./config/config");
-
-
-let MongoStore = require('connect-mongo')(_expressSession.default);
-
+const MongoStore = (0, _connectMongo.default)(_expressSession.default);
 const app = (0, _express.default)();
-const port = process.env.PORT; // process.env.NODE_ENV
-// bodyParser
+const port = process.env.PORT; // bodyParser
 // parse application/x-www-form-urlencoded
 
 app.use(_bodyParser.default.urlencoded({
@@ -39,7 +40,11 @@ app.use(_bodyParser.default.json({
 app.use((0, _expressSession.default)({
   secret: "keyboard cat",
   resave: true,
-  saveUninitialized: true
+  saveUninitialized: true,
+  store: new MongoStore({
+    url: process.env.MONGODB_URI,
+    collection: 'sessions'
+  })
 }));
 app.use(_passport.default.initialize());
 app.use(_passport.default.session()); // passport config

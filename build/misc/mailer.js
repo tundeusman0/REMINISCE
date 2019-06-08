@@ -5,20 +5,20 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
+require("../config/config");
+
 var _nodemailer = _interopRequireDefault(require("nodemailer"));
 
 var _nodemailerMailgunTransport = _interopRequireDefault(require("nodemailer-mailgun-transport"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-require("../config/config"); // EmailService.js
-
-
+// EmailService.js
 // Configure transport options
 const mailgunOptions = {
   auth: {
-    api_key: process.env.api_key,
-    domain: process.env.domain
+    api_key: process.env.MAILGUN_API_KEY,
+    domain: process.env.MAILGUN_DOMAIN
   }
 };
 const transport = (0, _nodemailerMailgunTransport.default)(mailgunOptions); // EmailService
@@ -47,7 +47,6 @@ class EmailService {
 
 }
 
-var _default = new EmailService(); // module.exports = new EmailService()
-
+var _default = new EmailService();
 
 exports.default = _default;

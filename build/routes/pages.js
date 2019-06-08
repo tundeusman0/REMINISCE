@@ -11,7 +11,7 @@ var _auth = _interopRequireDefault(require("../auth/auth"));
 
 var _check = require("express-validator/check");
 
-var _url = _interopRequireDefault(require("../config/url"));
+var _url = require("../config/url");
 
 var _user = require("../models/user");
 
@@ -158,7 +158,7 @@ router.post('/user_page', isUser, [(0, _check.check)('loanType').isString(), (0,
                                 <br/>
                                 please check and confirm payment for a pending loan request from ${req.user.email};
                                 on the following page:
-                                <a href="${_url.default}admin/confirm/${userId}">${_url.default}admin/confirm/${userId}</a>
+                                <a href="${_url.url}admin/confirm/${userId}">${_url.url}admin/confirm/${userId}</a>
                                 <br/><br/>`;
 
         _user.User.findOne({
@@ -393,7 +393,7 @@ router.post('/user/pay', isUser, [(0, _check.check)('transferNumber').isString()
                                 <br/>
                                 please check and confirm payment of a loan request from ${req.user.email};
                                 on the following page:
-                                <a href="${_url.default}/admin/payment_confirmation/${userId}">${_url.default}admin/payment_confirmation/${userId}</a>
+                                <a href="${_url.url}admin/payment_confirmation/${userId}">${_url.url}admin/payment_confirmation/${userId}</a>
                                 <br/><br/>`;
 
     _user.User.findOne({

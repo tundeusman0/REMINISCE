@@ -21,11 +21,10 @@ var _auth = _interopRequireDefault(require("../auth/auth"));
 
 var _mailer = _interopRequireDefault(require("../misc/mailer"));
 
-var _url = _interopRequireDefault(require("../config/url"));
+var _url = require("../config/url");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import { mongoose } from "../db/mongoose";
 const isUser = _auth.default.isUser;
 
 const router = _express.default.Router(); // router.get('/', (req, res) => {
@@ -128,7 +127,7 @@ router.post('/register', [(0, _check.check)('email').isEmail(), (0, _check.check
               user.password = hash;
               user.save().then(user => {
                 console.log(`user added`);
-                req.flash('info', 'Registration successful, an Email as been sent to you please confirm to be able to login'); // res.redirect("/user/register")
+                req.flash('info', 'Registration successful, an Email as been sent to you please confirm to be able to login if not please contact the developer on tundeusman0@gmail.com to add your email to his Recipients'); // res.redirect("/user/register")
 
                 res.render('pages/register', {
                   email: "",
@@ -155,11 +154,12 @@ router.post('/register', [(0, _check.check)('email').isEmail(), (0, _check.check
                                 please verify your email by typing the following email token;
                                 Token: <h3><b>${secretTokens}</b></h3>
                                 on the following page:
-                                <a href="${_url.default}user/verify">${_url.default}user/verify</a>
+                                <a href="${_url.url}user/verify">${_url.url}user/verify</a>
                                 <br/><br/>`;
+              console.log("send to", email);
 
               _mailer.default.sendText(email, 'Please Verify Your Email!', html).then(() => {
-                console.log("message success");
+                console.log("message success", email);
               }).catch(e => {
                 console.log("message error", e);
               });

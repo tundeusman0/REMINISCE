@@ -1,6 +1,7 @@
 "use strict";
 
-const mongoose = require('mongoose');
+const mongoose = require('mongoose'); // require("./config/config");
+
 
 mongoose.Promise = global.Promise;
 mongoose.set('useFindAndModify', false);

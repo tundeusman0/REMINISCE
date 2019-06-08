@@ -1,12 +1,8 @@
-// require("../config/config");
+import "../config/config"
 
 // EmailService.js
 import nodemailer from 'nodemailer';
 import mailgunTransport from 'nodemailer-mailgun-transport'
-// https://api.mailgun.net/v3/gentle-waters-83618.herokuapp.com
-// '"Reminisce" <youremail@{yourdomain.com}>'
-// "https://api:#{API_KEY}@api.mailgun.net/v2/<your-mailgun-domain>"
-// https://api.mailgun.net/v2/yourdomain.com/
 
 // Configure transport options
 const mailgunOptions = {
@@ -15,7 +11,6 @@ const mailgunOptions = {
         domain: process.env.MAILGUN_DOMAIN,
     }
 }
-console.log(mailgunOptions.auth.domain)
 const transport = mailgunTransport(mailgunOptions)
 // EmailService
 class EmailService {
@@ -40,4 +35,3 @@ class EmailService {
     }
 }
 export default new EmailService()
-// module.exports = new EmailService()

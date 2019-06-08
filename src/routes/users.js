@@ -1,5 +1,4 @@
 import express from "express";
-// import { mongoose } from "../db/mongoose";
 import { User } from '../models/user';
 import { check, validationResult } from "express-validator/check";
 import cryptoRandomString from 'crypto-random-string';
